@@ -38,6 +38,7 @@ const Filter = ({ filterField, options }) => {
   const [searchParams, setSearchParams] = useSearchParams()
   const handleClick = (value) => {
     searchParams.set(filterField, value)
+    if (searchParams.get('page')) searchParams.set('page', 1)
     setSearchParams(searchParams)
   }
   const currentFilter = searchParams.get(filterField) || options.at(0).value
